@@ -8,6 +8,7 @@ public class Indovina extends Thread{
     private String _parola;
     private ArrayList<String> _listaParole;
     private String _id;
+    //static boolean check = false;
 
     public Indovina(String parola, ArrayList<String> listaParole, String id){
         _listaParole = listaParole;
@@ -20,14 +21,19 @@ public class Indovina extends Thread{
         Random rnd = new Random();
         String p = _listaParole.get(rnd.nextInt(_listaParole.size()));
         int conta = 1;
+        System.out.println(_id + ": " + p);
 
         while(p.compareTo(_parola) != 0){
-            System.out.println(_id + ": " + p);
             p = _listaParole.get(rnd.nextInt(_listaParole.size()));
             conta++;
+            System.out.println(_id + ": " + p);
 
         }
+
+        //check = true;
         System.out.println(_id + ": Indovinato! " + p);
+
+
 
     }
 
